@@ -14,7 +14,7 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return ['Categorias'];
+        return Categoria::all();
     }
 
     /**
@@ -25,7 +25,8 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria($request->all());
+        return $categoria;
     }
 
     /**
@@ -36,7 +37,7 @@ class CategoriaController extends Controller
      */
     public function show(Categoria $categoria)
     {
-        //
+        return $categoria;
     }
 
     /**
@@ -48,7 +49,8 @@ class CategoriaController extends Controller
      */
     public function update(Request $request, Categoria $categoria)
     {
-        //
+        $categoria->update($request->all());
+        return $categoria;
     }
 
     /**
@@ -59,6 +61,7 @@ class CategoriaController extends Controller
      */
     public function destroy(Categoria $categoria)
     {
-        //
+        $categoria->delete();
+        return $categoria;
     }
 }
